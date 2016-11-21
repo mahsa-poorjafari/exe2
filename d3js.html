@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!-- saved from url=(0017)https://d3js.org/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="image_src" href="https://d3js.org/preview.png">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<title>D3.js - Data-Driven Documents</title>
+<style>
+
+html {
+  min-width: 1040px;
+  margin: 0;
+}
+
+body {
+  font: 16px/1.5em "Helvetica Neue", Helvetica, sans-serif;
+  margin: 1em 0 4em 0;
+}
+
+#examples {
+  background: #ddd;
+  height: 460px;
+  margin-bottom: 2em;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  border-top: solid 1px #fff;
+  border-bottom: solid 1px #fff;
+}
+
+#examples:after,
+#examples:before {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  background: white;
+  height: 16px;
+  z-index: 2;
+}
+
+#examples:before {
+  bottom: -16px;
+  box-shadow: 0px -8px 16px rgba(0,0,0,.3);
+}
+
+#examples:after {
+  top: -16px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,.3);
+}
+
+#examples-deep {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+#examples svg,
+#examples canvas {
+  position: absolute;
+}
+
+.example-mesh {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+.example-anchor path {
+  fill: none;
+  pointer-events: all;
+}
+
+.example-anchor path:hover {
+  stroke: #000;
+  stroke-width: 2px;
+}
+
+h1 {
+  color: #555;
+  font-size: 64px;
+  font-weight: 200;
+  letter-spacing: -2px;
+  white-space: nowrap;
+  margin-top: 20px;
+}
+
+h1,
+h2 {
+  text-rendering: optimizeLegibility;
+}
+
+h2 {
+  margin-top: 2em;
+}
+
+h2 a {
+  color: #ccc;
+  left: -20px;
+  position: absolute;
+  width: 740px;
+}
+
+footer {
+  font-size: small;
+  margin-top: 8em;
+}
+
+header aside {
+  margin-top: 82px;
+}
+
+header aside,
+footer aside {
+  color: #636363;
+  text-align: right;
+}
+
+aside {
+  font-size: small;
+  left: 780px;
+  position: absolute;
+  width: 180px;
+}
+
+.column {
+  margin: auto;
+  width: 720px;
+  padding-right: 240px;
+  position: relative;
+}
+
+a {
+  color: steelblue;
+}
+
+a:not(:hover) {
+  text-decoration: none;
+}
+
+pre,
+code {
+  font-family: "Menlo", monospace;
+  -webkit-text-size-adjust: 100%;
+}
+
+code {
+  line-height: 1em;
+}
+
+pre {
+  border-left: solid 2px #ccc;
+  padding-left: 18px;
+  margin: 2em 0 2em -20px;
+}
+
+.html .string,
+.javascript .string,
+.javascript .regexp {
+  color: #756bb1;
+}
+
+.html .tag,
+.css .tag,
+.javascript .keyword {
+  color: #3182bd;
+}
+
+.comment {
+  color: #636363;
+}
+
+.html .doctype,
+.javascript .number {
+  color: #31a354;
+}
+
+.html .attr,
+.css .attr,
+.javascript .class,
+.javascript .special {
+  color: #e6550d;
+}
+
+
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+.loading_gif {display:none}
+
+</style>
+</head>
+	<body>
+		<div class="column">
+			<header>
+			  <b>M.Pourjafarian</b>
+			 
+			</header>
+	<h1>
+	  <svg width="96" height="91" style="position:relative;top:22px;">
+		<clippath id="clip">
+		  <path d="M0,0h7.75a45.5,45.5 0 1 1 0,91h-7.75v-20h7.75a25.5,25.5 0 1 0 0,-51h-7.75zm36.2510,0h32a27.75,27.75 0 0 1 21.331,45.5a27.75,27.75 0 0 1 -21.331,45.5h-32a53.6895,53.6895 0 0 0 18.7464,-20h13.2526a7.75,7.75 0 1 0 0,-15.5h-7.75a53.6895,53.6895 0 0 0 0,-20h7.75a7.75,7.75 0 1 0 0,-15.5h-13.2526a53.6895,53.6895 0 0 0 -18.7464,-20z"></path>
+		</clippath>
+		<lineargradient id="gradient-1" gradientUnits="userSpaceOnUse" x1="7" y1="64" x2="50" y2="107">
+		  <stop offset="0" stop-color="#f9a03c"></stop>
+		  <stop offset="1" stop-color="#f7974e"></stop>
+		</lineargradient>
+		<lineargradient id="gradient-2" gradientUnits="userSpaceOnUse" x1="2" y1="-2" x2="87" y2="84">
+		  <stop offset="0" stop-color="#f26d58"></stop>
+		  <stop offset="1" stop-color="#f9a03c"></stop>
+		</lineargradient>
+		<lineargradient id="gradient-3" gradientUnits="userSpaceOnUse" x1="45" y1="-10" x2="108" y2="53">
+		  <stop offset="0" stop-color="#b84e51"></stop>
+		  <stop offset="1" stop-color="#f68e48"></stop>
+		</lineargradient>
+		<g clip-path="url(#clip)">
+		  <path d="M-100,-102m-27,0v300h300z" fill="url(#gradient-1)"></path>
+		  <path d="M-100,-102m27,0h300v300z" fill="url(#gradient-3)"></path>
+		  <path d="M-100,-102l300,300" fill="none" stroke="url(#gradient-2)" stroke-width="40"></path>
+		</g>
+	  </svg>
+	  Data-Driven Documents
+	</h1>
+	</div>
+	<div class="col-md-2"></div>
+	<div class="col-md-8 well" style="text-align: center;">
+	<img src="loading.gif" class="loading_gif"/>
+	 <svg class="chart">		
+		
+	</svg>
+	</div>
+	<div class="col-md-2"></div>
+	<script>
+		//var data = [4, 8, 15, 16, 23, 42];
+		// 1. Code here runs first, before the download starts.
+		d3.tsv("data/titanicdataset.tsv", function(error, data) {
+		  // 3. Code here runs last, after the download finishes.
+		  $('.loading_gif').show();
+		});
+		$('.loading_gif').hide();
+		// 2. Code here runs second, while the file is downloading.
+	</script>
+</body></html>
