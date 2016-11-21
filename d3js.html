@@ -235,19 +235,20 @@ pre {
 	<div class="col-md-2"></div>
 	<div class="col-md-8 well" style="text-align: center;">
 	<img src="loading.gif" class="loading_gif"/>
-	 <svg class="chart">		
-		
+	 <svg class="chart">		 		
+		<div></div>
 	</svg>
 	</div>
 	<div class="col-md-2"></div>
 	<script>
-		//var data = [4, 8, 15, 16, 23, 42];
-		// 1. Code here runs first, before the download starts.
-		d3.tsv("data/titanicdataset.tsv", function(error, data) {
-		  // 3. Code here runs last, after the download finishes.
-		  $('.loading_gif').show();
-		});
-		$('.loading_gif').hide();
-		// 2. Code here runs second, while the file is downloading.
-	</script>
+		var pie = d3.pie()
+		  .value(function(d) { return d.count; })
+		  .sort(null);
+		d3.csv('titanic_dataset.csv', function(error, dataset) {  // NEW
+			  dataset.forEach(function(d) {                    // NEW
+				d.count = +d.count;                            // NEW
+			  }); 
+			var path = svg.selectAll('div')
+			.data(pie(dataset))
+		 });	</script>
 </body></html>
